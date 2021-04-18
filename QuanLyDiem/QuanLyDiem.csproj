@@ -159,11 +159,11 @@
     <Compile Include="GUI\Forms\FLogin.Designer.cs">
       <DependentUpon>FLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControl\UCBangDiem.cs">
+    <Compile Include="GUI\UserControl\UCNhapDiem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\UserControl\UCBangDiem.Designer.cs">
-      <DependentUpon>UCBangDiem.cs</DependentUpon>
+    <Compile Include="GUI\UserControl\UCNhapDiem.Designer.cs">
+      <DependentUpon>UCNhapDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserControl\UCHocPhan.cs">
       <SubType>UserControl</SubType>
@@ -209,8 +209,8 @@
     <EmbeddedResource Include="GUI\Forms\FLogin.resx">
       <DependentUpon>FLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UserControl\UCBangDiem.resx">
-      <DependentUpon>UCBangDiem.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\UserControl\UCNhapDiem.resx">
+      <DependentUpon>UCNhapDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserControl\UCHocPhan.resx">
       <DependentUpon>UCHocPhan.cs</DependentUpon>

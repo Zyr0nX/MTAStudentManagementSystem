@@ -62,8 +62,8 @@ namespace QuanLyDiem.GUI.Forms
 
         private void bBangDiem_Click(object sender, EventArgs e)
         {
-            MoveSlider(bBangDiem);
-            AddUserControlToPanel(new UCBangDiem());
+            MoveSlider(bNhapDiem);
+            AddUserControlToPanel(new UCNhapDiem());
         }
 
         private void bXemDiem_Click(object sender, EventArgs e)

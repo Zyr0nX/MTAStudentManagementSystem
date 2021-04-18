@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyDiem.GUI.UserControl
 {
-    public partial class UCBangDiem : System.Windows.Forms.UserControl
+    public partial class UCNhapDiem : System.Windows.Forms.UserControl
     {
-        public UCBangDiem()
+        public UCNhapDiem()
         {
             InitializeComponent();
         }
