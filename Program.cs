@@ -15,6 +15,7 @@ namespace MTAStudentManagementSystem
         [STAThread]
         static void Main()
         {
+            DAO.DataProvider.TestConnection();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FDashboard());

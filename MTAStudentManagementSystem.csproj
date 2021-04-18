@@ -147,6 +147,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="GUI\Forms\FDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
