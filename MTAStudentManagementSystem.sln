@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.31025.218
+VisualStudioVersion = 16.0.31213.239
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTAStudentManagementSystem", "QuanLyDiem\MTAStudentManagementSystem.csproj", "{6AE04903-AD63-476F-ADF3-40E78AE22C66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTAStudentManagementSystem", "MTAStudentManagementSystem.csproj", "{6AE04903-AD63-476F-ADF3-40E78AE22C66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {41668D63-41B3-4A56-A118-0ED8FF35DAEA}
+		SolutionGuid = {1B30938D-6167-446C-829E-33FB958410DB}
 	EndGlobalSection
 EndGlobal
