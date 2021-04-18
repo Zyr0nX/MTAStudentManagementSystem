@@ -1,5 +1,5 @@
 ﻿
-namespace QuanLyDiem.GUI.UserControl
+namespace MTAStudentManagementSystem.GUI.UserControl
 {
     partial class UCNhapDiem
     {
@@ -177,7 +177,6 @@ namespace QuanLyDiem.GUI.UserControl
             this.bunifuGroupBox2.TabIndex = 8;
             this.bunifuGroupBox2.TabStop = false;
             this.bunifuGroupBox2.Text = "Chỉnh sửa";
-            this.bunifuGroupBox2.Enter += new System.EventHandler(this.bunifuGroupBox2_Enter);
             // 
             // bunifuLabel5
             // 

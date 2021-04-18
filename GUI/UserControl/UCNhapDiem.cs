@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyDiem.GUI.UserControl
+namespace MTAStudentManagementSystem.GUI.UserControl
 {
     public partial class UCNhapDiem : System.Windows.Forms.UserControl
     {
         public UCNhapDiem()
         {
             InitializeComponent();
-        }
-
-        private void bunifuGroupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyDiem.GUI.UserControl
+namespace MTAStudentManagementSystem.GUI.UserControl
 {
     public partial class UCLop : System.Windows.Forms.UserControl
     {

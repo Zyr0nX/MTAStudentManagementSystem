@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyDiem.GUI.Forms
+namespace MTAStudentManagementSystem.GUI.Forms
 {
     public partial class FLogin : Form
     {

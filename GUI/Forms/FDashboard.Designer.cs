@@ -1,5 +1,5 @@
 ﻿
-namespace QuanLyDiem.GUI.Forms
+namespace MTAStudentManagementSystem.GUI.Forms
 {
     partial class FDashboard
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace QuanLyDiem.GUI.UserControl
+namespace MTAStudentManagementSystem.GUI.UserControl
 {
     partial class UCPhong
     {

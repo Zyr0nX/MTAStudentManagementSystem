@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyDiem.GUI.UserControl;
+using MTAStudentManagementSystem.GUI.UserControl;
 
-namespace QuanLyDiem.GUI.Forms
+namespace MTAStudentManagementSystem.GUI.Forms
 {
     public partial class FDashboard : Form
     {
