@@ -33,7 +33,6 @@ namespace QuanLyDiem.GUI.UserControl
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCSinhVien));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
@@ -98,6 +97,7 @@ namespace QuanLyDiem.GUI.UserControl
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges10 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges11 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCSinhVien));
             this.pSinhVien = new Bunifu.UI.WinForms.BunifuPages();
             this.tpChinhSua = new System.Windows.Forms.TabPage();
             this.bunifuDataGridView1 = new Bunifu.UI.WinForms.BunifuDataGridView();
@@ -148,6 +148,8 @@ namespace QuanLyDiem.GUI.UserControl
             this.bunifuDataGridView2 = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.bChinhSua = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bDangKy = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.bunifuLabel15 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.pSinhVien.SuspendLayout();
             this.tpChinhSua.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
@@ -170,10 +172,10 @@ namespace QuanLyDiem.GUI.UserControl
             this.pSinhVien.Location = new System.Drawing.Point(3, 68);
             this.pSinhVien.Multiline = true;
             this.pSinhVien.Name = "pSinhVien";
-            this.pSinhVien.Page = this.tpDangKy;
-            this.pSinhVien.PageIndex = 1;
-            this.pSinhVien.PageName = "tpDangKy";
-            this.pSinhVien.PageTitle = "Đăng ký học phần";
+            this.pSinhVien.Page = this.tpChinhSua;
+            this.pSinhVien.PageIndex = 0;
+            this.pSinhVien.PageName = "tpChinhSua";
+            this.pSinhVien.PageTitle = "Chỉnh sửa thông tin";
             this.pSinhVien.SelectedIndex = 0;
             this.pSinhVien.Size = new System.Drawing.Size(1024, 512);
             this.pSinhVien.TabIndex = 0;
@@ -274,6 +276,8 @@ namespace QuanLyDiem.GUI.UserControl
             this.bunifuGroupBox2.BorderColor = System.Drawing.Color.LightGray;
             this.bunifuGroupBox2.BorderRadius = 1;
             this.bunifuGroupBox2.BorderThickness = 1;
+            this.bunifuGroupBox2.Controls.Add(this.comboBox2);
+            this.bunifuGroupBox2.Controls.Add(this.bunifuLabel15);
             this.bunifuGroupBox2.Controls.Add(this.bunifuDatePicker1);
             this.bunifuGroupBox2.Controls.Add(this.btnHuyKH);
             this.bunifuGroupBox2.Controls.Add(this.btnLuuKH);
@@ -2630,6 +2634,30 @@ namespace QuanLyDiem.GUI.UserControl
             this.bDangKy.UseDefaultRadiusAndThickness = true;
             this.bDangKy.Click += new System.EventHandler(this.bDangKy_Click);
             // 
+            // bunifuLabel15
+            // 
+            this.bunifuLabel15.AllowParentOverrides = false;
+            this.bunifuLabel15.AutoEllipsis = false;
+            this.bunifuLabel15.CursorType = null;
+            this.bunifuLabel15.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel15.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuLabel15.Location = new System.Drawing.Point(67, 233);
+            this.bunifuLabel15.Name = "bunifuLabel15";
+            this.bunifuLabel15.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel15.Size = new System.Drawing.Size(33, 23);
+            this.bunifuLabel15.TabIndex = 34;
+            this.bunifuLabel15.Text = "Lớp";
+            this.bunifuLabel15.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel15.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(151, 224);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(240, 35);
+            this.comboBox2.TabIndex = 35;
+            // 
             // UCSinhVien
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2711,5 +2739,7 @@ namespace QuanLyDiem.GUI.UserControl
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton4;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton3;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton2;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel15;
     }
 }
