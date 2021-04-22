@@ -1,7 +1,7 @@
 ﻿
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
-    partial class UCPhong
+    partial class UCGiangDuong
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCPhong));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCGiangDuong));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
@@ -990,13 +990,13 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.tbMaGiangDuongTK.UseSystemPasswordChar = false;
             this.tbMaGiangDuongTK.WordWrap = true;
             // 
-            // UCPhong
+            // UCGiangDuong
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.dgvGiangDuong);
             this.Controls.Add(this.bunifuGroupBox2);
             this.Controls.Add(this.bunifuGroupBox1);
-            this.Name = "UCPhong";
+            this.Name = "UCGiangDuong";
             this.Size = new System.Drawing.Size(1030, 580);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiangDuong)).EndInit();
             this.bunifuGroupBox2.ResumeLayout(false);
