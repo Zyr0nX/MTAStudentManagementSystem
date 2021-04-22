@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MTAStudentManagementSystem.DAO;
+using MTAStudentManagementSystem.DTO;
 
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
@@ -156,12 +157,44 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         private void bDanhSach_Click(object sender, EventArgs e)
         {
             pLop.SelectTab(tpDanhSach);
+            LoadDanhSach();
         }
 
+        private void LoadDanhSach()
+        {
+            LoadListDS();
+            LoadComboBoxLop();
+        }
 
+        private void LoadListDS()
+        {
+            dgvDanhSach.DataSource = LopDAO.Instance.GetDanhSachLop("", "");
+        }
 
+        private void LoadComboBoxLop()
+        {
+            List<Lop> list = LopDAO.Instance.GetListMaLop();
+            cbMaLopDS.DataSource = list;
+            cbMaLopDS.DisplayMember = "mal";
+            cbMaLopDS.ValueMember = "mal";
+        }
 
+        private void cbMaLopDS_SelectedValueChanged(object sender, EventArgs e)
+        {
+            string mal = cbMaLopDS.SelectedValue.ToString();
+            string tenl = tbTenLopDS.Text;
+            dgvDanhSach.DataSource = LopDAO.Instance.GetDanhSachLop(mal, tenl);
+        }
+
+        private void tbTenLopDS_TextChange(object sender, EventArgs e)
+        {
+            string mal = cbMaLopDS.SelectedValue.ToString();
+            string tenl = tbTenLopDS.Text;
+            dgvDanhSach.DataSource = LopDAO.Instance.GetDanhSachLop(mal, tenl);
+        }
 
         #endregion
+
+        
     }
 }

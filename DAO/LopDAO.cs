@@ -74,5 +74,12 @@ namespace MTAStudentManagementSystem.DAO
             string tenl = DataProvider.Instance.ExecuteScalar(query, new object[] {mal}).ToString();
             return tenl;
         }
+
+        public DataTable GetDanhSachLop(string mal, string tenl)
+        {
+            string query = "EXEC [dbo].[GetDanhSachLop] @mal , @tenl";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] {mal, tenl});
+            return table;
+        }
     }
 }
