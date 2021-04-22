@@ -181,11 +181,11 @@
     <Compile Include="GUI\UserControl\UCLop.Designer.cs">
       <DependentUpon>UCLop.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControl\UCPhong.cs">
+    <Compile Include="GUI\UserControl\UCGiangDuong.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\UserControl\UCPhong.Designer.cs">
-      <DependentUpon>UCPhong.cs</DependentUpon>
+    <Compile Include="GUI\UserControl\UCGiangDuong.Designer.cs">
+      <DependentUpon>UCGiangDuong.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserControl\UCSinhVien.cs">
       <SubType>UserControl</SubType>
@@ -222,8 +222,8 @@
     <EmbeddedResource Include="GUI\UserControl\UCLop.resx">
       <DependentUpon>UCLop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\UserControl\UCPhong.resx">
-      <DependentUpon>UCPhong.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\UserControl\UCGiangDuong.resx">
+      <DependentUpon>UCGiangDuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserControl\UCSinhVien.resx">
       <DependentUpon>UCSinhVien.cs</DependentUpon>
