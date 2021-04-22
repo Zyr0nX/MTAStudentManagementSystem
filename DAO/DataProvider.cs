@@ -11,6 +11,16 @@ namespace MTAStudentManagementSystem.DAO
 {
     class DataProvider
     {
+        private static DataProvider instance;
+
+        internal static DataProvider Instance
+        {
+            get => instance ?? (instance = new DataProvider());
+            set => instance = value;
+        }
+
+        private DataProvider() { }
+
         private static string connectionString = "Data Source=(local);Initial Catalog=MTASTudentManagement;Integrated Security=True";
 
         public static void TestConnection()
@@ -54,7 +64,7 @@ namespace MTAStudentManagementSystem.DAO
                     {
                         if (item.Contains('@'))
                         {
-                            command.Parameters.AddWithValue(item, listPara[i]);
+                            command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
                     }
@@ -81,7 +91,7 @@ namespace MTAStudentManagementSystem.DAO
                     {
                         if (item.Contains('@'))
                         {
-                            command.Parameters.AddWithValue(item, listPara[i]);
+                            command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
                     }
@@ -107,12 +117,12 @@ namespace MTAStudentManagementSystem.DAO
                     {
                         if (item.Contains('@'))
                         {
-                            command.Parameters.AddWithValue(item, listPara[i]);
+                            command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
                     }
                 }
-                data = command.ExecuteNonQuery();
+                data = command.ExecuteScalar();
                 connection.Close();
             }
             return data;
