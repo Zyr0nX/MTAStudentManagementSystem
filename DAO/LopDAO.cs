@@ -4,9 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MTAStudentManagementSystem.DAO;
+using MTAStudentManagementSystem.DTO;
 
-namespace QuanLyDiem.DAO
+namespace MTAStudentManagementSystem.DAO
 {
     class LopDAO
     {
@@ -50,9 +50,29 @@ namespace QuanLyDiem.DAO
 
         public DataTable TimKiemLop(string mal, string tenl)
         {
-            string query = string.Format("SELECT * FROM LOP WHERE(MAL LIKE '%' + N'{0}' + '%' OR N'{0}' = '') AND(TENL LIKE N'%' + N'{1}' + N'%' OR N'{1}' = '')", mal, tenl);
-            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            string query = "EXEC [dbo].[TimKiemLop] @mal , @tenl";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] {mal, tenl});
             return table;
+        }
+
+        public List<Lop> GetListMaLop()
+        {
+            List<Lop> list = new List<Lop>();
+            string query = "SELECT * FROM LOP";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow dataRow in data.Rows)
+            {
+                Lop lop = new Lop(dataRow);
+                list.Add(lop);
+            }
+            return list;
+        }
+
+        public string GetTenLopByMaLop(string mal)
+        {
+            string query = "SELECT [dbo].[GetTenLopByMaLop]( @mal ) ";
+            string tenl = DataProvider.Instance.ExecuteScalar(query, new object[] {mal}).ToString();
+            return tenl;
         }
     }
 }

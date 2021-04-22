@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuanLyDiem.DAO;
+using MTAStudentManagementSystem.DAO;
 
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
@@ -140,7 +140,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         {
             string mal = tbMaLopTK.Text;
             string tenl = tbTenLopTK.Text;
-            dgvChinhSua.DataSource = LopDAO.Instance.TimKiemLop(mal, tenl);
+            dgvChinhSua.DataSource = LopDAO.Instance.TimKiemLop(mal, tenl); 
         }
 
         private void tbTenLopTK_TextChange(object sender, EventArgs e)
