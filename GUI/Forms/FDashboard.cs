@@ -57,7 +57,7 @@ namespace MTAStudentManagementSystem.GUI.Forms
         private void bPhong_Click(object sender, EventArgs e)
         {
             MoveSlider(bPhong);
-            AddUserControlToPanel(new UCPhong());
+            AddUserControlToPanel(new UCGiangDuong());
         }
 
         private void bBangDiem_Click(object sender, EventArgs e)
