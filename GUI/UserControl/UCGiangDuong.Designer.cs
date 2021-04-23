@@ -55,7 +55,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.dgvGiangDuong = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.bunifuGroupBox2 = new Bunifu.UI.WinForms.BunifuGroupBox();
+            this.gbChinhSua = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.bHuyCS = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bLuuCS = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bSuaCS = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -65,14 +65,14 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.tbMaGiangDuongCS = new Bunifu.UI.WinForms.BunifuTextBox();
             this.tbMoTaGiangDuongCS = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
+            this.gbTimKiem = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.tbMoTaGiangDuongTK = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.tbMaGiangDuongTK = new Bunifu.UI.WinForms.BunifuTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiangDuong)).BeginInit();
-            this.bunifuGroupBox2.SuspendLayout();
-            this.bunifuGroupBox1.SuspendLayout();
+            this.gbChinhSua.SuspendLayout();
+            this.gbTimKiem.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvGiangDuong
@@ -135,32 +135,32 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.dgvGiangDuong.TabIndex = 6;
             this.dgvGiangDuong.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             // 
-            // bunifuGroupBox2
+            // gbChinhSua
             // 
-            this.bunifuGroupBox2.BackColor = System.Drawing.Color.White;
-            this.bunifuGroupBox2.BorderColor = System.Drawing.Color.LightGray;
-            this.bunifuGroupBox2.BorderRadius = 1;
-            this.bunifuGroupBox2.BorderThickness = 1;
-            this.bunifuGroupBox2.Controls.Add(this.bHuyCS);
-            this.bunifuGroupBox2.Controls.Add(this.bLuuCS);
-            this.bunifuGroupBox2.Controls.Add(this.bSuaCS);
-            this.bunifuGroupBox2.Controls.Add(this.bThemCS);
-            this.bunifuGroupBox2.Controls.Add(this.bXoaCS);
-            this.bunifuGroupBox2.Controls.Add(this.bunifuLabel3);
-            this.bunifuGroupBox2.Controls.Add(this.tbMaGiangDuongCS);
-            this.bunifuGroupBox2.Controls.Add(this.tbMoTaGiangDuongCS);
-            this.bunifuGroupBox2.Controls.Add(this.bunifuLabel4);
-            this.bunifuGroupBox2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuGroupBox2.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuGroupBox2.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuGroupBox2.LabelIndent = 10;
-            this.bunifuGroupBox2.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.bunifuGroupBox2.Location = new System.Drawing.Point(609, 3);
-            this.bunifuGroupBox2.Name = "bunifuGroupBox2";
-            this.bunifuGroupBox2.Size = new System.Drawing.Size(418, 574);
-            this.bunifuGroupBox2.TabIndex = 5;
-            this.bunifuGroupBox2.TabStop = false;
-            this.bunifuGroupBox2.Text = "Chỉnh sửa";
+            this.gbChinhSua.BackColor = System.Drawing.Color.White;
+            this.gbChinhSua.BorderColor = System.Drawing.Color.LightGray;
+            this.gbChinhSua.BorderRadius = 1;
+            this.gbChinhSua.BorderThickness = 1;
+            this.gbChinhSua.Controls.Add(this.bHuyCS);
+            this.gbChinhSua.Controls.Add(this.bLuuCS);
+            this.gbChinhSua.Controls.Add(this.bSuaCS);
+            this.gbChinhSua.Controls.Add(this.bThemCS);
+            this.gbChinhSua.Controls.Add(this.bXoaCS);
+            this.gbChinhSua.Controls.Add(this.bunifuLabel3);
+            this.gbChinhSua.Controls.Add(this.tbMaGiangDuongCS);
+            this.gbChinhSua.Controls.Add(this.tbMoTaGiangDuongCS);
+            this.gbChinhSua.Controls.Add(this.bunifuLabel4);
+            this.gbChinhSua.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbChinhSua.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.gbChinhSua.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.gbChinhSua.LabelIndent = 10;
+            this.gbChinhSua.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
+            this.gbChinhSua.Location = new System.Drawing.Point(609, 3);
+            this.gbChinhSua.Name = "gbChinhSua";
+            this.gbChinhSua.Size = new System.Drawing.Size(418, 574);
+            this.gbChinhSua.TabIndex = 5;
+            this.gbChinhSua.TabStop = false;
+            this.gbChinhSua.Text = "Chỉnh sửa";
             // 
             // bHuyCS
             // 
@@ -233,7 +233,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.bHuyCS.OnIdleState.BorderThickness = 1;
             this.bHuyCS.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(36)))), ((int)(((byte)(60)))));
             this.bHuyCS.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.bHuyCS.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnHuyKH.OnIdleState.IconLeftImage")));
+            this.bHuyCS.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("bHuyCS.OnIdleState.IconLeftImage")));
             this.bHuyCS.OnIdleState.IconRightImage = null;
             this.bHuyCS.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(19)))), ((int)(((byte)(33)))));
             this.bHuyCS.OnPressedState.BorderRadius = 5;
@@ -250,6 +250,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.bHuyCS.TextMarginLeft = 15;
             this.bHuyCS.TextPadding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.bHuyCS.UseDefaultRadiusAndThickness = true;
+            this.bHuyCS.Click += new System.EventHandler(this.bHuyCS_Click);
             // 
             // bLuuCS
             // 
@@ -322,7 +323,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.bLuuCS.OnIdleState.BorderThickness = 1;
             this.bLuuCS.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(68)))), ((int)(((byte)(122)))));
             this.bLuuCS.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.bLuuCS.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnLuuKH.OnIdleState.IconLeftImage")));
+            this.bLuuCS.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("bLuuCS.OnIdleState.IconLeftImage")));
             this.bLuuCS.OnIdleState.IconRightImage = null;
             this.bLuuCS.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(37)))), ((int)(((byte)(67)))));
             this.bLuuCS.OnPressedState.BorderRadius = 5;
@@ -339,6 +340,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.bLuuCS.TextMarginLeft = 15;
             this.bLuuCS.TextPadding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.bLuuCS.UseDefaultRadiusAndThickness = true;
+            this.bLuuCS.Click += new System.EventHandler(this.bLuuCS_Click);
             // 
             // bSuaCS
             // 
@@ -411,7 +413,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.bSuaCS.OnIdleState.BorderThickness = 1;
             this.bSuaCS.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(187)))), ((int)(((byte)(219)))));
             this.bSuaCS.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.bSuaCS.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnSuaNV.OnIdleState.IconLeftImage")));
+            this.bSuaCS.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("bSuaCS.OnIdleState.IconLeftImage")));
             this.bSuaCS.OnIdleState.IconRightImage = null;
             this.bSuaCS.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(102)))), ((int)(((byte)(120)))));
             this.bSuaCS.OnPressedState.BorderRadius = 5;
@@ -428,6 +430,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.bSuaCS.TextMarginLeft = 15;
             this.bSuaCS.TextPadding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.bSuaCS.UseDefaultRadiusAndThickness = true;
+            this.bSuaCS.Click += new System.EventHandler(this.bSuaCS_Click);
             // 
             // bThemCS
             // 
@@ -500,7 +503,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.bThemCS.OnIdleState.BorderThickness = 1;
             this.bThemCS.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(175)))), ((int)(((byte)(85)))));
             this.bThemCS.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.bThemCS.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnThemNV.OnIdleState.IconLeftImage")));
+            this.bThemCS.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("bThemCS.OnIdleState.IconLeftImage")));
             this.bThemCS.OnIdleState.IconRightImage = null;
             this.bThemCS.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(96)))), ((int)(((byte)(46)))));
             this.bThemCS.OnPressedState.BorderRadius = 5;
@@ -517,6 +520,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.bThemCS.TextMarginLeft = 15;
             this.bThemCS.TextPadding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.bThemCS.UseDefaultRadiusAndThickness = true;
+            this.bThemCS.Click += new System.EventHandler(this.bThemCS_Click);
             // 
             // bXoaCS
             // 
@@ -589,7 +593,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.bXoaCS.OnIdleState.BorderThickness = 1;
             this.bXoaCS.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(75)))), ((int)(((byte)(72)))));
             this.bXoaCS.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.bXoaCS.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnXoaNV.OnIdleState.IconLeftImage")));
+            this.bXoaCS.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("bXoaCS.OnIdleState.IconLeftImage")));
             this.bXoaCS.OnIdleState.IconRightImage = null;
             this.bXoaCS.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(41)))), ((int)(((byte)(39)))));
             this.bXoaCS.OnPressedState.BorderRadius = 5;
@@ -606,6 +610,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.bXoaCS.TextMarginLeft = 15;
             this.bXoaCS.TextPadding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.bXoaCS.UseDefaultRadiusAndThickness = true;
+            this.bXoaCS.Click += new System.EventHandler(this.bXoaCS_Click);
             // 
             // bunifuLabel3
             // 
@@ -642,6 +647,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.tbMaGiangDuongCS.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbMaGiangDuongCS.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
             this.tbMaGiangDuongCS.DefaultText = "";
+            this.tbMaGiangDuongCS.Enabled = false;
             this.tbMaGiangDuongCS.FillColor = System.Drawing.Color.White;
             this.tbMaGiangDuongCS.HideSelection = true;
             this.tbMaGiangDuongCS.IconLeft = null;
@@ -716,6 +722,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.tbMoTaGiangDuongCS.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbMoTaGiangDuongCS.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
             this.tbMoTaGiangDuongCS.DefaultText = "";
+            this.tbMoTaGiangDuongCS.Enabled = false;
             this.tbMoTaGiangDuongCS.FillColor = System.Drawing.Color.White;
             this.tbMoTaGiangDuongCS.HideSelection = true;
             this.tbMoTaGiangDuongCS.IconLeft = null;
@@ -787,27 +794,27 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel4.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // bunifuGroupBox1
+            // gbTimKiem
             // 
-            this.bunifuGroupBox1.BackColor = System.Drawing.Color.White;
-            this.bunifuGroupBox1.BorderColor = System.Drawing.Color.LightGray;
-            this.bunifuGroupBox1.BorderRadius = 1;
-            this.bunifuGroupBox1.BorderThickness = 1;
-            this.bunifuGroupBox1.Controls.Add(this.bunifuLabel2);
-            this.bunifuGroupBox1.Controls.Add(this.tbMoTaGiangDuongTK);
-            this.bunifuGroupBox1.Controls.Add(this.bunifuLabel1);
-            this.bunifuGroupBox1.Controls.Add(this.tbMaGiangDuongTK);
-            this.bunifuGroupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuGroupBox1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuGroupBox1.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuGroupBox1.LabelIndent = 10;
-            this.bunifuGroupBox1.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.bunifuGroupBox1.Location = new System.Drawing.Point(3, 3);
-            this.bunifuGroupBox1.Name = "bunifuGroupBox1";
-            this.bunifuGroupBox1.Size = new System.Drawing.Size(600, 125);
-            this.bunifuGroupBox1.TabIndex = 4;
-            this.bunifuGroupBox1.TabStop = false;
-            this.bunifuGroupBox1.Text = "Tìm kiếm";
+            this.gbTimKiem.BackColor = System.Drawing.Color.White;
+            this.gbTimKiem.BorderColor = System.Drawing.Color.LightGray;
+            this.gbTimKiem.BorderRadius = 1;
+            this.gbTimKiem.BorderThickness = 1;
+            this.gbTimKiem.Controls.Add(this.bunifuLabel2);
+            this.gbTimKiem.Controls.Add(this.tbMoTaGiangDuongTK);
+            this.gbTimKiem.Controls.Add(this.bunifuLabel1);
+            this.gbTimKiem.Controls.Add(this.tbMaGiangDuongTK);
+            this.gbTimKiem.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTimKiem.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.gbTimKiem.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.gbTimKiem.LabelIndent = 10;
+            this.gbTimKiem.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
+            this.gbTimKiem.Location = new System.Drawing.Point(3, 3);
+            this.gbTimKiem.Name = "gbTimKiem";
+            this.gbTimKiem.Size = new System.Drawing.Size(600, 125);
+            this.gbTimKiem.TabIndex = 4;
+            this.gbTimKiem.TabStop = false;
+            this.gbTimKiem.Text = "Tìm kiếm";
             // 
             // bunifuLabel2
             // 
@@ -898,6 +905,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.tbMoTaGiangDuongTK.TextPlaceholder = "Enter text";
             this.tbMoTaGiangDuongTK.UseSystemPasswordChar = false;
             this.tbMoTaGiangDuongTK.WordWrap = true;
+            this.tbMoTaGiangDuongTK.TextChange += new System.EventHandler(this.tbMoTaGiangDuongTK_TextChange);
             // 
             // bunifuLabel1
             // 
@@ -989,20 +997,21 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.tbMaGiangDuongTK.TextPlaceholder = "Enter text";
             this.tbMaGiangDuongTK.UseSystemPasswordChar = false;
             this.tbMaGiangDuongTK.WordWrap = true;
+            this.tbMaGiangDuongTK.TextChange += new System.EventHandler(this.tbMaGiangDuongTK_TextChange);
             // 
             // UCGiangDuong
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.dgvGiangDuong);
-            this.Controls.Add(this.bunifuGroupBox2);
-            this.Controls.Add(this.bunifuGroupBox1);
+            this.Controls.Add(this.gbChinhSua);
+            this.Controls.Add(this.gbTimKiem);
             this.Name = "UCGiangDuong";
             this.Size = new System.Drawing.Size(1030, 580);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiangDuong)).EndInit();
-            this.bunifuGroupBox2.ResumeLayout(false);
-            this.bunifuGroupBox2.PerformLayout();
-            this.bunifuGroupBox1.ResumeLayout(false);
-            this.bunifuGroupBox1.PerformLayout();
+            this.gbChinhSua.ResumeLayout(false);
+            this.gbChinhSua.PerformLayout();
+            this.gbTimKiem.ResumeLayout(false);
+            this.gbTimKiem.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1010,7 +1019,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         #endregion
 
         private Bunifu.UI.WinForms.BunifuDataGridView dgvGiangDuong;
-        private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox2;
+        private Bunifu.UI.WinForms.BunifuGroupBox gbChinhSua;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bHuyCS;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bLuuCS;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bSuaCS;
@@ -1020,7 +1029,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         private Bunifu.UI.WinForms.BunifuTextBox tbMaGiangDuongCS;
         private Bunifu.UI.WinForms.BunifuTextBox tbMoTaGiangDuongCS;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
-        private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox1;
+        private Bunifu.UI.WinForms.BunifuGroupBox gbTimKiem;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
         private Bunifu.UI.WinForms.BunifuTextBox tbMoTaGiangDuongTK;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
