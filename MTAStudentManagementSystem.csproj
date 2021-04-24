@@ -149,8 +149,10 @@
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\GiangDuongDAO.cs" />
+    <Compile Include="DAO\HocPhanDAO.cs" />
     <Compile Include="DAO\LopDAO.cs" />
     <Compile Include="DAO\SinhVienDAO.cs" />
+    <Compile Include="DTO\GiangDuong.cs" />
     <Compile Include="DTO\Lop.cs" />
     <Compile Include="GUI\Forms\FDashboard.cs">
       <SubType>Form</SubType>

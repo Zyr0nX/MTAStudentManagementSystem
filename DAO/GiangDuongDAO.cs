@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MTAStudentManagementSystem.DAO;
+using MTAStudentManagementSystem.DTO;
 
 namespace MTAStudentManagementSystem.DAO
 {
@@ -53,6 +54,19 @@ namespace MTAStudentManagementSystem.DAO
             string query = "EXEC [dbo].[TimKiemGiangDuong] @magd , @motagd";
             DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] {magd, motagd});
             return table;
+        }
+
+        public List<GiangDuong> GetListGiangDuong()
+        {
+            List<GiangDuong> list = new List<GiangDuong>();
+            string query = "SELECT * FROM GIANGDUONG";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow dataRow in data.Rows)
+            {
+                GiangDuong giangduong = new GiangDuong(dataRow);
+                list.Add(giangduong);
+            }
+            return list;
         }
     }
 }
