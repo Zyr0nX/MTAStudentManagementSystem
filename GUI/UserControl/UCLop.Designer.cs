@@ -921,7 +921,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.tbMaLopCS.AnimationSpeed = 200;
             this.tbMaLopCS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.tbMaLopCS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.tbMaLopCS.BackColor = System.Drawing.Color.Transparent;
+            this.tbMaLopCS.BackColor = System.Drawing.Color.White;
             this.tbMaLopCS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbMaLopCS.BackgroundImage")));
             this.tbMaLopCS.BorderColorActive = System.Drawing.Color.DodgerBlue;
             this.tbMaLopCS.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -1149,10 +1149,10 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.pLop.Location = new System.Drawing.Point(3, 65);
             this.pLop.Multiline = true;
             this.pLop.Name = "pLop";
-            this.pLop.Page = this.tpDanhSach;
-            this.pLop.PageIndex = 1;
-            this.pLop.PageName = "tpDanhSach";
-            this.pLop.PageTitle = "Danh sách lớp";
+            this.pLop.Page = this.tpChinhSua;
+            this.pLop.PageIndex = 0;
+            this.pLop.PageName = "tpChinhSua";
+            this.pLop.PageTitle = "Chỉnh sửa thông tin";
             this.pLop.SelectedIndex = 0;
             this.pLop.Size = new System.Drawing.Size(1024, 512);
             this.pLop.TabIndex = 5;
