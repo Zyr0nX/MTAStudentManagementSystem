@@ -67,5 +67,12 @@ namespace MTAStudentManagementSystem.DAO
             }
             return list;
         }
+
+        public DataTable GetDanhSachLopHocPhan(string mahp, string tenhp)
+        {
+            string query = "EXEC [dbo].[GetDanhSachLopHocPhan] @mahp , @tenhp";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] {mahp, tenhp});
+            return table;
+        }
     }
 }

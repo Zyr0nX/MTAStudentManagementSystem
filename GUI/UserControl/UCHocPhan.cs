@@ -185,6 +185,40 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         private void bDanhSach_Click(object sender, EventArgs e)
         {
             pHocPhan.SelectTab(tpDanhSach);
+            LoadDanhSach();
+        }
+
+        private void LoadDanhSach()
+        {
+            LoadComboBoxHocPhan();
+            LoadListLopHocPhan();
+        }
+
+        private void LoadComboBoxHocPhan()
+        {
+            List<HocPhan> list = HocPhanDAO.Instance.GetListHocPhan();
+            cbMaHocPhanDS.DataSource = list;
+            cbMaHocPhanDS.DisplayMember = "mahp";
+            cbMaHocPhanDS.ValueMember = "mahp";
+        }
+
+        private void LoadListLopHocPhan()
+        {
+            dgvDanhSach.DataSource = HocPhanDAO.Instance.GetDanhSachLopHocPhan("", "");
+        }
+
+        private void cbMaHocPhanDS_SelectedValueChanged(object sender, EventArgs e)
+        {
+            string mahp = cbMaHocPhanDS.SelectedValue.ToString();
+            string tenhp = tbTenHocPhanDS.Text;
+            dgvDanhSach.DataSource = HocPhanDAO.Instance.GetDanhSachLopHocPhan(mahp, tenhp);
+        }
+
+        private void tbTenHocPhanDS_TextChange(object sender, EventArgs e)
+        {
+            string mahp = cbMaHocPhanDS.SelectedValue.ToString();
+            string tenhp = tbTenHocPhanDS.Text;
+            dgvDanhSach.DataSource = HocPhanDAO.Instance.GetDanhSachLopHocPhan(mahp, tenhp);
         }
 
         #endregion
