@@ -186,11 +186,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         {
             pHocPhan.SelectTab(tpDanhSach);
         }
-    }
-
-
 
         #endregion
-
-        
+    }
 }

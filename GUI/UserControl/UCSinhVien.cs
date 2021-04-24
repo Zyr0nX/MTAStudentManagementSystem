@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Bunifu.UI.WinForms;
 using MTAStudentManagementSystem.DAO;
 using MTAStudentManagementSystem.DTO;
 
@@ -34,7 +35,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         {
             ClearBindingCS();
             ClearBindingTK();
-            LoadListLop();
+            LoadListSinhVien();
             ChinhSuaBinding();
             LoadComboBoxLop();
         }
@@ -71,7 +72,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             cbLopCS.ValueMember = "mal";
         }
 
-        private void LoadListLop()
+        private void LoadListSinhVien()
         {
             dgvChinhSua.DataSource = SinhVienDAO.Instance.GetSinhVienList();
         }
@@ -145,7 +146,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             i = -1;
             ClearBindingCS();
             DisEnableButtonCS(true);
-            LoadListLop();
+            LoadListSinhVien();
         }
 
         private void bHuyCS_Click(object sender, EventArgs e)
@@ -174,18 +175,147 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         private void bDangKy_Click(object sender, EventArgs e)
         {
             pSinhVien.SelectTab(tpDangKy);
+            LoadDangKy();
+        }
+
+        private void LoadDangKy()
+        {
+            ClearBinding(gbSinhVienTK);
+            ClearBinding(gbHocPhanTK);
+            ClearBinding(gbDangKy);
+            LoadDataGridView();
+            LoadComboBoxHocPhan();
+            ChinhSuaBinding2();
+        }
+
+        private void ClearBinding(BunifuGroupBox gb)
+        {
+            foreach (Control gbControl in gb.Controls)
+            {
+                gbControl.DataBindings.Clear();
+            }
+        }
+
+        private void LoadDataGridView()
+        {
+            dgvDangKy.DataSource = SinhVienDAO.Instance.GetSinhVienList();
+            dgvHocPhan.DataSource = HocPhanDAO.Instance.GetHocPhanList();
+        }
+
+        private void LoadComboBoxHocPhan()
+        {
+            List<HocPhan> list = HocPhanDAO.Instance.GetListHocPhan();
+            cbMaHocPhanDK.DataSource = list;
+            cbMaHocPhanDK.DisplayMember = "mahp";
+            cbMaHocPhanDK.ValueMember = "mahp";
+        }
+
+        private void ChinhSuaBinding2()
+        {
+            tbMaSinhVienDK.DataBindings.Add(new Binding("text", dgvChinhSua.DataSource, "masv"));
+            tbTenSinhVienDK.DataBindings.Add(new Binding("text", dgvChinhSua.DataSource, "tensv"));
+        }
+
+        private void DisEnableButtonDK(bool x)
+        {
+            bThemDK.Enabled = x;
+            bXoaDK.Enabled = x;
+            bLuuDK.Enabled = !x;
+            bHuyDK.Enabled = !x;
+            tbMaSinhVienDK.Enabled = !x;
+            tbTenSinhVienDK.Enabled = !x;
+            cbMaHocPhanDK.Enabled = !x;
         }
 
         private void twXemHocPhan_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
         {
-            gbTimKiemHP.Visible = twXemHocPhan.Value;
-            dgvHP.Visible = twXemHocPhan.Value;
+            gbHocPhanTK.Visible = twXemHocPhan.Value;
+            dgvHocPhan.Visible = twXemHocPhan.Value;
         }
 
+        private void bThemDK_Click(object sender, EventArgs e)
+        {
+            DisEnableButtonDK(false);
+            ClearBinding(gbDangKy);
+            tbMaSinhVienDK.DataBindings.Add(new Binding("text", dgvDangKy.DataSource, "masv"));
+            tbTenSinhVienDK.DataBindings.Add(new Binding("text", dgvDangKy.DataSource, "tensv"));
+            dgvDangKy.DataSource = DangKyHocPhanDAO.Instance.GetHocPhanDangKyList(tbMaSinhVienDK.Text);
+            i = 1;
+        }
 
+        private void bXoaDK_Click(object sender, EventArgs e)
+        {
+            DisEnableButtonDK(false);
+            ClearBinding(gbDangKy);
+            tbMaSinhVienDK.DataBindings.Add(new Binding("text", dgvDangKy.DataSource, "masv"));
+            tbTenSinhVienDK.DataBindings.Add(new Binding("text", dgvDangKy.DataSource, "tensv"));
+            dgvDangKy.DataSource = DangKyHocPhanDAO.Instance.GetHocPhanDangKyList(tbMaSinhVienDK.Text);
+            cbMaHocPhanDK.DataBindings.Add(new Binding("text", dgvDangKy.DataSource, "mahp"));
+            i = 2;
+        }
 
+        private void bLuuDK_Click(object sender, EventArgs e)
+        {
+            string masv = tbMaSinhVienDK.Text;
+            string mahp = cbMaHocPhanDK.SelectedValue.ToString();
+            int result = -1;
+            if (i == 1)
+            {
+                result = DangKyHocPhanDAO.Instance.ThemHocPhanDangKy(masv, mahp);
+            }
+            else if (i == 2)
+            {
+                result = DangKyHocPhanDAO.Instance.XoaHocPhanDangKy(masv, mahp);
+            }
 
+            if (result == 0)
+            {
+                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("Thành công", "Thông báo", MessageBoxButtons.OK);
+            }
+            i = -1;
+            ClearBinding(gbDangKy);
+            DisEnableButtonDK(true);
+            LoadDataGridView();
+        }
 
+        private void bHuyDK_Click(object sender, EventArgs e)
+        {
+            ClearBinding(gbDangKy);
+            DisEnableButtonDK(true);
+            LoadDataGridView();
+        }
+
+        private void tbMaSinhVienTK2_TextChange(object sender, EventArgs e)
+        {
+            string masv = tbMaSinhVienTK2.Text;
+            string tensv = tbTenSinhVienTK2.Text;
+            dgvDangKy.DataSource = SinhVienDAO.Instance.TimKiemSinhVien(masv, tensv);
+        }
+
+        private void tbTenSinhVienTK2_TextChange(object sender, EventArgs e)
+        {
+            string masv = tbMaSinhVienTK2.Text;
+            string tensv = tbTenSinhVienTK2.Text;
+            dgvDangKy.DataSource = SinhVienDAO.Instance.TimKiemSinhVien(masv, tensv);
+        }
+
+        private void tbMaHocPhanTK_TextChange(object sender, EventArgs e)
+        {
+            string mahp = tbMaHocPhanTK.Text;
+            string tenhp = tbTenHocPhanTK.Text;
+            dgvHocPhan.DataSource = HocPhanDAO.Instance.TimKiemHocPhan(mahp, tenhp);
+        }
+
+        private void tbTenHocPhanTK_TextChange(object sender, EventArgs e)
+        {
+            string mahp = tbMaHocPhanTK.Text;
+            string tenhp = tbTenHocPhanTK.Text;
+            dgvHocPhan.DataSource = HocPhanDAO.Instance.TimKiemHocPhan(mahp, tenhp);
+        }
 
         #endregion
     }
