@@ -154,6 +154,7 @@
     <Compile Include="DAO\LopDAO.cs" />
     <Compile Include="DAO\NhapDiemDAO.cs" />
     <Compile Include="DAO\SinhVienDAO.cs" />
+    <Compile Include="DAO\XemDiemDAO.cs" />
     <Compile Include="DTO\GiangDuong.cs" />
     <Compile Include="DTO\HocPhan.cs" />
     <Compile Include="DTO\Lop.cs" />
