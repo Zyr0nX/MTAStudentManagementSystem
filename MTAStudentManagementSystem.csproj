@@ -152,6 +152,7 @@
     <Compile Include="DAO\GiangDuongDAO.cs" />
     <Compile Include="DAO\HocPhanDAO.cs" />
     <Compile Include="DAO\LopDAO.cs" />
+    <Compile Include="DAO\NhapDiemDAO.cs" />
     <Compile Include="DAO\SinhVienDAO.cs" />
     <Compile Include="DTO\GiangDuong.cs" />
     <Compile Include="DTO\HocPhan.cs" />

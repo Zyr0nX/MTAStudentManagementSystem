@@ -91,7 +91,7 @@ namespace MTAStudentManagementSystem.DAO
                     {
                         if (item.Contains('@'))
                         {
-                            command.Parameters.AddWithValue(item, parameter[i]);
+                            command.Parameters.AddWithValue(item, parameter[i] ?? DBNull.Value);
                             i++;
                         }
                     }
