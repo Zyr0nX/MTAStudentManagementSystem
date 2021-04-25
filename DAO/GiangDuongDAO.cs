@@ -1,71 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MTAStudentManagementSystem.DAO;
 using MTAStudentManagementSystem.DTO;
 
 namespace MTAStudentManagementSystem.DAO
 {
-    class GiangDuongDAO
+    internal class GiangDuongDao
     {
-        private static GiangDuongDAO instance;
+        private static GiangDuongDao _instance;
 
-        internal static GiangDuongDAO Instance
+        private GiangDuongDao()
         {
-            get => instance ?? (instance = new GiangDuongDAO());
-            set => instance = value;
         }
 
-        private GiangDuongDAO() { }
+        internal static GiangDuongDao Instance
+        {
+            get => _instance ?? (_instance = new GiangDuongDao());
+            set => _instance = value;
+        }
 
         public DataTable GetGiangDuongList()
         {
-            string query = "SELECT * FROM GIANGDUONG";
-            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            var query = "SELECT * FROM GIANGDUONG";
+            var table = DataProvider.Instance.ExecuteQuery(query);
             return table;
         }
 
         public string TaoMaGiangDuong()
         {
-            string query = "SELECT [dbo].[TAOMAGD]()";
-            string s = DataProvider.Instance.ExecuteScalar(query).ToString();
+            var query = "SELECT [dbo].[TAOMAGD]()";
+            var s = DataProvider.Instance.ExecuteScalar(query).ToString();
             return s;
         }
 
         public int ThemSuaGiangDuong(string magd, string motagd)
         {
-            string query = "EXEC [dbo].[THEMSUAGD] @magd , @motagd";
-            int i = DataProvider.Instance.ExecuteNonQuery(query, new object[] {magd, motagd});
+            var query = "EXEC [dbo].[THEMSUAGD] @magd , @motagd";
+            var i = DataProvider.Instance.ExecuteNonQuery(query, new object[] {magd, motagd});
             return i;
         }
 
         public int XoaGiangDuong(string magd)
         {
-            string query = "EXEC [dbo].[XoaGiangDuong] @magd";
-            int i = DataProvider.Instance.ExecuteNonQuery(query, new object[] {magd});
+            var query = "EXEC [dbo].[XoaGiangDuong] @magd";
+            var i = DataProvider.Instance.ExecuteNonQuery(query, new object[] {magd});
             return i;
         }
 
         public DataTable TimKiemGiangDuong(string magd, string motagd)
         {
-            string query = "EXEC [dbo].[TimKiemGiangDuong] @magd , @motagd";
-            DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] {magd, motagd});
+            var query = "EXEC [dbo].[TimKiemGiangDuong] @magd , @motagd";
+            var table = DataProvider.Instance.ExecuteQuery(query, new object[] {magd, motagd});
             return table;
         }
 
         public List<GiangDuong> GetListGiangDuong()
         {
-            List<GiangDuong> list = new List<GiangDuong>();
-            string query = "SELECT * FROM GIANGDUONG";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            var list = new List<GiangDuong>();
+            var query = "SELECT * FROM GIANGDUONG";
+            var data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow dataRow in data.Rows)
             {
-                GiangDuong giangduong = new GiangDuong(dataRow);
+                var giangduong = new GiangDuong(dataRow);
                 list.Add(giangduong);
             }
+
             return list;
         }
     }

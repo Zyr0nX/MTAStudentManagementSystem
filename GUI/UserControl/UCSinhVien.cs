@@ -1,21 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bunifu.UI.WinForms;
 using MTAStudentManagementSystem.DAO;
-using MTAStudentManagementSystem.DTO;
 
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
-    public partial class UCSinhVien : System.Windows.Forms.UserControl
+    public partial class UcSinhVien : System.Windows.Forms.UserControl
     {
-        public UCSinhVien()
+        public UcSinhVien()
         {
             InitializeComponent();
             LoadChinhSua();
@@ -23,7 +15,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         #region Chỉnh sửa thông tin
 
-        private int i = -1;
+        private int _i = -1;
 
         private void bChinhSua_Click(object sender, EventArgs e)
         {
@@ -33,27 +25,21 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void LoadChinhSua()
         {
-            ClearBindingCS();
-            ClearBindingTK();
+            ClearBindingCs();
+            ClearBindingTk();
             LoadListSinhVien();
             ChinhSuaBinding();
             LoadComboBoxLop();
         }
 
-        private void ClearBindingCS()
+        private void ClearBindingCs()
         {
-            foreach (Control control in gbChinhSua.Controls)
-            {
-                control.DataBindings.Clear();
-            }
+            foreach (Control control in gbChinhSua.Controls) control.DataBindings.Clear();
         }
 
-        private void ClearBindingTK()
+        private void ClearBindingTk()
         {
-            foreach (Control control in gbTimKiem.Controls)
-            {
-                control.DataBindings.Clear();
-            }
+            foreach (Control control in gbTimKiem.Controls) control.DataBindings.Clear();
         }
 
         private void ChinhSuaBinding()
@@ -66,7 +52,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void LoadComboBoxLop()
         {
-            List<Lop> list = LopDAO.Instance.GetListMaLop();
+            var list = LopDao.Instance.GetListMaLop();
             cbLopCS.DataSource = list;
             cbLopCS.DisplayMember = "tenl";
             cbLopCS.ValueMember = "mal";
@@ -74,10 +60,10 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void LoadListSinhVien()
         {
-            dgvChinhSua.DataSource = SinhVienDAO.Instance.GetSinhVienList();
+            dgvChinhSua.DataSource = SinhVienDao.Instance.GetSinhVienList();
         }
 
-        private void DisEnableButtonCS(bool x)
+        private void DisEnableButtonCs(bool x)
         {
             bThemCS.Enabled = x;
             bSuaCS.Enabled = x;
@@ -92,82 +78,74 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void bThemCS_Click(object sender, EventArgs e)
         {
-            DisEnableButtonCS(false);
-            ClearBindingCS();
-            tbMaSinhVienCS.Text = SinhVienDAO.Instance.TaoMaSinhVien();
+            DisEnableButtonCs(false);
+            ClearBindingCs();
+            tbMaSinhVienCS.Text = SinhVienDao.Instance.TaoMaSinhVien();
             tbTenSinhVienCS.Text = "";
             dpNgaySinhCS.Value = DateTime.Today;
             tbSoCMNDCS.Text = "";
             cbLopCS.Text = "";
-            i = 1;
+            _i = 1;
         }
 
         private void bSuaCS_Click(object sender, EventArgs e)
         {
-            DisEnableButtonCS(false);
-            ClearBindingCS();
+            DisEnableButtonCs(false);
+            ClearBindingCs();
             ChinhSuaBinding();
-            i = 1;
+            _i = 1;
         }
 
         private void bXoaCS_Click(object sender, EventArgs e)
         {
-            DisEnableButtonCS(false);
-            ClearBindingCS();
+            DisEnableButtonCs(false);
+            ClearBindingCs();
             ChinhSuaBinding();
-            i = 2;
+            _i = 2;
         }
 
         private void bLuuCS_Click(object sender, EventArgs e)
         {
-            string masv = tbMaSinhVienCS.Text;
-            string tensv = tbTenSinhVienCS.Text;
-            DateTime ngaysinhsv = dpNgaySinhCS.Value;
-            string socmndsv = tbSoCMNDCS.Text;
-            string mal = cbLopCS.SelectedValue.ToString();
-            int result = -1;
-            if (i == 1)
-            {
-                result = SinhVienDAO.Instance.ThemSuaSinhVien(masv, tensv, ngaysinhsv, socmndsv, mal);
-            }
-            else if (i == 2)
-            {
-                result = SinhVienDAO.Instance.XoaSinhVien(masv);
-            }
+            var masv = tbMaSinhVienCS.Text;
+            var tensv = tbTenSinhVienCS.Text;
+            var ngaysinhsv = dpNgaySinhCS.Value;
+            var socmndsv = tbSoCMNDCS.Text;
+            var mal = cbLopCS.SelectedValue.ToString();
+            var result = -1;
+            if (_i == 1)
+                result = SinhVienDao.Instance.ThemSuaSinhVien(masv, tensv, ngaysinhsv, socmndsv, mal);
+            else if (_i == 2) result = SinhVienDao.Instance.XoaSinhVien(masv);
 
             if (result == 0)
-            {
-                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                MessageBox.Show(@"Thất bại", @"Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
-            {
-                MessageBox.Show("Thành công", "Thông báo", MessageBoxButtons.OK);
-            }
-            i = -1;
-            ClearBindingCS();
-            DisEnableButtonCS(true);
+                MessageBox.Show(@"Thành công", @"Thông báo", MessageBoxButtons.OK);
+            _i = -1;
+            ClearBindingCs();
+            DisEnableButtonCs(true);
             LoadListSinhVien();
         }
 
         private void bHuyCS_Click(object sender, EventArgs e)
         {
-            ClearBindingCS();
-            DisEnableButtonCS(true);
+            ClearBindingCs();
+            DisEnableButtonCs(true);
         }
 
         private void tbMaSinhVienTK_TextChange(object sender, EventArgs e)
         {
-            string masv = tbMaSinhVienTK.Text;
-            string tensv = tbTenSInhVienTK.Text;
-            dgvChinhSua.DataSource = SinhVienDAO.Instance.TimKiemSinhVien(masv, tensv);
+            var masv = tbMaSinhVienTK.Text;
+            var tensv = tbTenSInhVienTK.Text;
+            dgvChinhSua.DataSource = SinhVienDao.Instance.TimKiemSinhVien(masv, tensv);
         }
 
         private void tbTenSInhVienTK_TextChange(object sender, EventArgs e)
         {
-            string masv = tbMaSinhVienTK.Text;
-            string tensv = tbTenSInhVienTK.Text;
-            dgvChinhSua.DataSource = SinhVienDAO.Instance.TimKiemSinhVien(masv, tensv);
+            var masv = tbMaSinhVienTK.Text;
+            var tensv = tbTenSInhVienTK.Text;
+            dgvChinhSua.DataSource = SinhVienDao.Instance.TimKiemSinhVien(masv, tensv);
         }
+
         #endregion
 
         #region Đăng ký học phần
@@ -190,21 +168,18 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void ClearBinding(BunifuGroupBox gb)
         {
-            foreach (Control gbControl in gb.Controls)
-            {
-                gbControl.DataBindings.Clear();
-            }
+            foreach (Control gbControl in gb.Controls) gbControl.DataBindings.Clear();
         }
 
         private void LoadDataGridView()
         {
-            dgvDangKy.DataSource = SinhVienDAO.Instance.GetSinhVienList();
-            dgvHocPhan.DataSource = HocPhanDAO.Instance.GetHocPhanList();
+            dgvDangKy.DataSource = SinhVienDao.Instance.GetSinhVienList();
+            dgvHocPhan.DataSource = HocPhanDao.Instance.GetHocPhanList();
         }
 
         private void LoadComboBoxHocPhan()
         {
-            List<HocPhan> list = HocPhanDAO.Instance.GetListHocPhan();
+            var list = HocPhanDao.Instance.GetListHocPhan();
             cbMaHocPhanDK.DataSource = list;
             cbMaHocPhanDK.DisplayMember = "mahp";
             cbMaHocPhanDK.ValueMember = "mahp";
@@ -216,7 +191,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             tbTenSinhVienDK.DataBindings.Add(new Binding("text", dgvChinhSua.DataSource, "tensv"));
         }
 
-        private void DisEnableButtonDK(bool x)
+        private void DisEnableButtonDk(bool x)
         {
             bThemDK.Enabled = x;
             bXoaDK.Enabled = x;
@@ -227,7 +202,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             cbMaHocPhanDK.Enabled = !x;
         }
 
-        private void twXemHocPhan_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs e)
+        private void twXemHocPhan_CheckedChanged(object sender, BunifuToggleSwitch.CheckedChangedEventArgs e)
         {
             gbHocPhanTK.Visible = twXemHocPhan.Value;
             dgvHocPhan.Visible = twXemHocPhan.Value;
@@ -235,86 +210,77 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void bThemDK_Click(object sender, EventArgs e)
         {
-            DisEnableButtonDK(false);
+            DisEnableButtonDk(false);
             ClearBinding(gbDangKy);
             tbMaSinhVienDK.DataBindings.Add(new Binding("text", dgvDangKy.DataSource, "masv"));
             tbTenSinhVienDK.DataBindings.Add(new Binding("text", dgvDangKy.DataSource, "tensv"));
-            dgvDangKy.DataSource = DangKyHocPhanDAO.Instance.GetHocPhanDangKyList(tbMaSinhVienDK.Text);
-            i = 1;
+            dgvDangKy.DataSource = DangKyHocPhanDao.Instance.GetHocPhanDangKyList(tbMaSinhVienDK.Text);
+            _i = 1;
         }
 
         private void bXoaDK_Click(object sender, EventArgs e)
         {
-            DisEnableButtonDK(false);
+            DisEnableButtonDk(false);
             ClearBinding(gbDangKy);
             tbMaSinhVienDK.DataBindings.Add(new Binding("text", dgvDangKy.DataSource, "masv"));
             tbTenSinhVienDK.DataBindings.Add(new Binding("text", dgvDangKy.DataSource, "tensv"));
-            dgvDangKy.DataSource = DangKyHocPhanDAO.Instance.GetHocPhanDangKyList(tbMaSinhVienDK.Text);
+            dgvDangKy.DataSource = DangKyHocPhanDao.Instance.GetHocPhanDangKyList(tbMaSinhVienDK.Text);
             cbMaHocPhanDK.DataBindings.Add(new Binding("text", dgvDangKy.DataSource, "mahp"));
-            i = 2;
+            _i = 2;
         }
 
         private void bLuuDK_Click(object sender, EventArgs e)
         {
-            string masv = tbMaSinhVienDK.Text;
-            string mahp = cbMaHocPhanDK.SelectedValue.ToString();
-            int result = -1;
-            if (i == 1)
-            {
-                result = DangKyHocPhanDAO.Instance.ThemHocPhanDangKy(masv, mahp);
-            }
-            else if (i == 2)
-            {
-                result = DangKyHocPhanDAO.Instance.XoaHocPhanDangKy(masv, mahp);
-            }
+            var masv = tbMaSinhVienDK.Text;
+            var mahp = cbMaHocPhanDK.SelectedValue.ToString();
+            var result = -1;
+            if (_i == 1)
+                result = DangKyHocPhanDao.Instance.ThemHocPhanDangKy(masv, mahp);
+            else if (_i == 2) result = DangKyHocPhanDao.Instance.XoaHocPhanDangKy(masv, mahp);
 
             if (result == 0)
-            {
-                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                MessageBox.Show(@"Thất bại", @"Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
-            {
-                MessageBox.Show("Thành công", "Thông báo", MessageBoxButtons.OK);
-            }
-            i = -1;
+                MessageBox.Show(@"Thành công", @"Thông báo", MessageBoxButtons.OK);
+            _i = -1;
             ClearBinding(gbDangKy);
-            DisEnableButtonDK(true);
+            DisEnableButtonDk(true);
             LoadDataGridView();
         }
 
         private void bHuyDK_Click(object sender, EventArgs e)
         {
             ClearBinding(gbDangKy);
-            DisEnableButtonDK(true);
+            DisEnableButtonDk(true);
             LoadDataGridView();
         }
 
         private void tbMaSinhVienTK2_TextChange(object sender, EventArgs e)
         {
-            string masv = tbMaSinhVienTK2.Text;
-            string tensv = tbTenSinhVienTK2.Text;
-            dgvDangKy.DataSource = SinhVienDAO.Instance.TimKiemSinhVien(masv, tensv);
+            var masv = tbMaSinhVienTK2.Text;
+            var tensv = tbTenSinhVienTK2.Text;
+            dgvDangKy.DataSource = SinhVienDao.Instance.TimKiemSinhVien(masv, tensv);
         }
 
         private void tbTenSinhVienTK2_TextChange(object sender, EventArgs e)
         {
-            string masv = tbMaSinhVienTK2.Text;
-            string tensv = tbTenSinhVienTK2.Text;
-            dgvDangKy.DataSource = SinhVienDAO.Instance.TimKiemSinhVien(masv, tensv);
+            var masv = tbMaSinhVienTK2.Text;
+            var tensv = tbTenSinhVienTK2.Text;
+            dgvDangKy.DataSource = SinhVienDao.Instance.TimKiemSinhVien(masv, tensv);
         }
 
         private void tbMaHocPhanTK_TextChange(object sender, EventArgs e)
         {
-            string mahp = tbMaHocPhanTK.Text;
-            string tenhp = tbTenHocPhanTK.Text;
-            dgvHocPhan.DataSource = HocPhanDAO.Instance.TimKiemHocPhan(mahp, tenhp);
+            var mahp = tbMaHocPhanTK.Text;
+            var tenhp = tbTenHocPhanTK.Text;
+            dgvHocPhan.DataSource = HocPhanDao.Instance.TimKiemHocPhan(mahp, tenhp);
         }
 
         private void tbTenHocPhanTK_TextChange(object sender, EventArgs e)
         {
-            string mahp = tbMaHocPhanTK.Text;
-            string tenhp = tbTenHocPhanTK.Text;
-            dgvHocPhan.DataSource = HocPhanDAO.Instance.TimKiemHocPhan(mahp, tenhp);
+            var mahp = tbMaHocPhanTK.Text;
+            var tenhp = tbTenHocPhanTK.Text;
+            dgvHocPhan.DataSource = HocPhanDao.Instance.TimKiemHocPhan(mahp, tenhp);
         }
 
         #endregion

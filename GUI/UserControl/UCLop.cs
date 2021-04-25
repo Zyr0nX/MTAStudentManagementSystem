@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MTAStudentManagementSystem.DAO;
-using MTAStudentManagementSystem.DTO;
 
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
-    public partial class UCLop : System.Windows.Forms.UserControl
+    public partial class UcLop : System.Windows.Forms.UserControl
     {
-        public UCLop()
+        public UcLop()
         {
             InitializeComponent();
             LoadChinhSua();
@@ -22,7 +14,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         #region Chỉnh sửa thông tin
 
-        private int i = -1;
+        private int _i = -1;
 
         private void bChinhSua_Click(object sender, EventArgs e)
         {
@@ -32,26 +24,20 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void LoadChinhSua()
         {
-            ClearBindingCS();
-            ClearBindingTK();
+            ClearBindingCs();
+            ClearBindingTk();
             LoadListLop();
             ChinhSuaBinding();
         }
 
-        private void ClearBindingCS()
+        private void ClearBindingCs()
         {
-            foreach (Control control in gbChinhSua.Controls)
-            {
-                control.DataBindings.Clear();
-            }
+            foreach (Control control in gbChinhSua.Controls) control.DataBindings.Clear();
         }
 
-        private void ClearBindingTK()
+        private void ClearBindingTk()
         {
-            foreach (Control control in gbTimKiem.Controls)
-            {
-                control.DataBindings.Clear();
-            }
+            foreach (Control control in gbTimKiem.Controls) control.DataBindings.Clear();
         }
 
         private void ChinhSuaBinding()
@@ -62,10 +48,10 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void LoadListLop()
         {
-            dgvChinhSua.DataSource = LopDAO.Instance.GetLopList();
+            dgvChinhSua.DataSource = LopDao.Instance.GetLopList();
         }
 
-        private void DisEnableButtonCS(bool x)
+        private void DisEnableButtonCs(bool x)
         {
             bThemCS.Enabled = x;
             bSuaCS.Enabled = x;
@@ -77,79 +63,70 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void bThemCS_Click(object sender, EventArgs e)
         {
-            DisEnableButtonCS(false);
-            ClearBindingCS();
-            tbMaLopCS.Text = LopDAO.Instance.TaoMaLop();
+            DisEnableButtonCs(false);
+            ClearBindingCs();
+            tbMaLopCS.Text = LopDao.Instance.TaoMaLop();
             tbTenLopCS.Text = "";
-            i = 1;
+            _i = 1;
         }
 
         private void bSuaCS_Click(object sender, EventArgs e)
         {
-            DisEnableButtonCS(false);
-            ClearBindingCS();
+            DisEnableButtonCs(false);
+            ClearBindingCs();
             tbMaLopCS.DataBindings.Add(new Binding("text", dgvChinhSua.DataSource, "MAL"));
             tbTenLopCS.DataBindings.Add(new Binding("text", dgvChinhSua.DataSource, "TENL"));
-            i = 1;
+            _i = 1;
         }
 
         private void bXoaCS_Click(object sender, EventArgs e)
         {
-            DisEnableButtonCS(false);
-            ClearBindingCS();
+            DisEnableButtonCs(false);
+            ClearBindingCs();
             tbMaLopCS.DataBindings.Add(new Binding("text", dgvChinhSua.DataSource, "MAL"));
             tbTenLopCS.DataBindings.Add(new Binding("text", dgvChinhSua.DataSource, "TENL"));
-            i = 2;
-
+            _i = 2;
         }
 
         private void bLuuCS_Click(object sender, EventArgs e)
         {
-            string mal = tbMaLopCS.Text;
-            string tenl = tbTenLopCS.Text;
-            int result = -1;
-            if (i == 1)
-            {
-                result = LopDAO.Instance.ThemSuaLop(mal, tenl);
-            }
-            else if (i == 2)
-            {
-                result = LopDAO.Instance.XoaLop(mal);
-            }
+            var mal = tbMaLopCS.Text;
+            var tenl = tbTenLopCS.Text;
+            var result = -1;
+            if (_i == 1)
+                result = LopDao.Instance.ThemSuaLop(mal, tenl);
+            else if (_i == 2) result = LopDao.Instance.XoaLop(mal);
 
             if (result == 0)
-            {
-                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                MessageBox.Show(@"Thất bại", @"Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
-            {
-                MessageBox.Show("Thành công", "Thông báo", MessageBoxButtons.OK);
-            }
-            i = -1;
-            ClearBindingCS();
-            DisEnableButtonCS(true);
+                MessageBox.Show(@"Thành công", @"Thông báo", MessageBoxButtons.OK);
+            _i = -1;
+            ClearBindingCs();
+            DisEnableButtonCs(true);
             LoadListLop();
         }
 
         private void bHuyCS_Click(object sender, EventArgs e)
         {
-            ClearBindingCS();
-            DisEnableButtonCS(true);
+            ClearBindingCs();
+            DisEnableButtonCs(true);
         }
 
         private void tbMaLopTK_TextChange(object sender, EventArgs e)
         {
-            string mal = tbMaLopTK.Text;
-            string tenl = tbTenLopTK.Text;
-            dgvChinhSua.DataSource = LopDAO.Instance.TimKiemLop(mal, tenl); 
+            var mal = tbMaLopTK.Text;
+            var tenl = tbTenLopTK.Text;
+            dgvChinhSua.DataSource = LopDao.Instance.TimKiemLop(mal, tenl);
         }
 
         private void tbTenLopTK_TextChange(object sender, EventArgs e)
         {
-            string mal = tbMaLopTK.Text;
-            string tenl = tbTenLopTK.Text;
-            dgvChinhSua.DataSource = LopDAO.Instance.TimKiemLop(mal, tenl);
+            var mal = tbMaLopTK.Text;
+            var tenl = tbTenLopTK.Text;
+            dgvChinhSua.DataSource = LopDao.Instance.TimKiemLop(mal, tenl);
         }
+
         #endregion
 
         #region Danh sách lớp
@@ -162,18 +139,18 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void LoadDanhSach()
         {
-            LoadListDS();
+            LoadListDs();
             LoadComboBoxLop();
         }
 
-        private void LoadListDS()
+        private void LoadListDs()
         {
-            dgvDanhSach.DataSource = LopDAO.Instance.GetDanhSachLop("", "");
+            dgvDanhSach.DataSource = LopDao.Instance.GetDanhSachLop("", "");
         }
 
         private void LoadComboBoxLop()
         {
-            List<Lop> list = LopDAO.Instance.GetListMaLop();
+            var list = LopDao.Instance.GetListMaLop();
             cbMaLopDS.DataSource = list;
             cbMaLopDS.DisplayMember = "mal";
             cbMaLopDS.ValueMember = "mal";
@@ -181,20 +158,18 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void cbMaLopDS_SelectedValueChanged(object sender, EventArgs e)
         {
-            string mal = cbMaLopDS.SelectedValue.ToString();
-            string tenl = tbTenLopDS.Text;
-            dgvDanhSach.DataSource = LopDAO.Instance.GetDanhSachLop(mal, tenl);
+            var mal = cbMaLopDS.SelectedValue.ToString();
+            var tenl = tbTenLopDS.Text;
+            dgvDanhSach.DataSource = LopDao.Instance.GetDanhSachLop(mal, tenl);
         }
 
         private void tbTenLopDS_TextChange(object sender, EventArgs e)
         {
-            string mal = cbMaLopDS.SelectedValue.ToString();
-            string tenl = tbTenLopDS.Text;
-            dgvDanhSach.DataSource = LopDAO.Instance.GetDanhSachLop(mal, tenl);
+            var mal = cbMaLopDS.SelectedValue.ToString();
+            var tenl = tbTenLopDS.Text;
+            dgvDanhSach.DataSource = LopDao.Instance.GetDanhSachLop(mal, tenl);
         }
 
         #endregion
-
-        
     }
 }

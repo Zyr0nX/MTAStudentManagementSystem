@@ -1,23 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using MTAStudentManagementSystem.DAO;
-using MTAStudentManagementSystem.DTO;
 
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
-    public partial class UCXemDiem : System.Windows.Forms.UserControl
+    public partial class UcXemDiem : System.Windows.Forms.UserControl
     {
-        public UCXemDiem()
+        public UcXemDiem()
         {
             InitializeComponent();
-            LoadXemDiemSV();
+            LoadXemDiemSv();
         }
 
         #region Xem điểm sinh viên
@@ -25,32 +16,33 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         private void bXemDiemSV_Click(object sender, EventArgs e)
         {
             pXemDiem.SelectTab(tpXemDiemSV);
-            LoadXemDiemSV();
+            LoadXemDiemSv();
         }
 
-        private void LoadXemDiemSV()
+        private void LoadXemDiemSv()
         {
-            LoadListSV();
+            LoadListSv();
         }
 
-        private void LoadListSV()
+        private void LoadListSv()
         {
-            dgvDiemSinhVien.DataSource = XemDiemDAO.Instance.XemDiemSinhVien("", "");
+            dgvDiemSinhVien.DataSource = XemDiemDao.Instance.XemDiemSinhVien("", "");
         }
 
         private void tbMaSinhVien_TextChange(object sender, EventArgs e)
         {
-            string masv = tbMaSinhVien.Text;
-            string tensv = tbTenSV.Text;
-            dgvDiemSinhVien.DataSource = XemDiemDAO.Instance.XemDiemSinhVien(masv, tensv);
+            var masv = tbMaSinhVien.Text;
+            var tensv = tbTenSV.Text;
+            dgvDiemSinhVien.DataSource = XemDiemDao.Instance.XemDiemSinhVien(masv, tensv);
         }
 
         private void tbTenSV_TextChange(object sender, EventArgs e)
         {
-            string masv = tbMaSinhVien.Text;
-            string tensv = tbTenSV.Text;
-            dgvDiemSinhVien.DataSource = XemDiemDAO.Instance.XemDiemSinhVien(masv, tensv);
+            var masv = tbMaSinhVien.Text;
+            var tensv = tbTenSV.Text;
+            dgvDiemSinhVien.DataSource = XemDiemDao.Instance.XemDiemSinhVien(masv, tensv);
         }
+
         #endregion
 
         #region Xem điểm lớp học phần
@@ -58,23 +50,23 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         private void bXemDiemHP_Click(object sender, EventArgs e)
         {
             pXemDiem.SelectTab(tpXemDiemHP);
-            LoadXemDiemLHP();
+            LoadXemDiemLhp();
         }
 
-        private void LoadXemDiemLHP()
+        private void LoadXemDiemLhp()
         {
-            LoadListHP();
+            LoadListHp();
             LoadComboBoxHocPhan();
         }
 
-        private void LoadListHP()
+        private void LoadListHp()
         {
-            dgvXemDiemLHP.DataSource = XemDiemDAO.Instance.XemDiemLopHocPhan("", "");
+            dgvXemDiemLHP.DataSource = XemDiemDao.Instance.XemDiemLopHocPhan("", "");
         }
 
         private void LoadComboBoxHocPhan()
         {
-            List<HocPhan> list = HocPhanDAO.Instance.GetListHocPhan();
+            var list = HocPhanDao.Instance.GetListHocPhan();
             cbMaHocPhan.DataSource = list;
             cbMaHocPhan.DisplayMember = "mahp";
             cbMaHocPhan.ValueMember = "mahp";
@@ -82,20 +74,18 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void cbMaHocPhan_SelectedValueChanged(object sender, EventArgs e)
         {
-            string mahp = cbMaHocPhan.SelectedValue.ToString();
-            string tenhp = tbTenHocPhan.Text;
-            dgvXemDiemLHP.DataSource = XemDiemDAO.Instance.XemDiemLopHocPhan(mahp, tenhp);
+            var mahp = cbMaHocPhan.SelectedValue.ToString();
+            var tenhp = tbTenHocPhan.Text;
+            dgvXemDiemLHP.DataSource = XemDiemDao.Instance.XemDiemLopHocPhan(mahp, tenhp);
         }
-        
+
         private void tbTenHocPhan_TextChange(object sender, EventArgs e)
         {
-            string mahp = cbMaHocPhan.SelectedValue.ToString();
-            string tenhp = tbTenHocPhan.Text;
-            dgvXemDiemLHP.DataSource = XemDiemDAO.Instance.XemDiemLopHocPhan(mahp, tenhp);
+            var mahp = cbMaHocPhan.SelectedValue.ToString();
+            var tenhp = tbTenHocPhan.Text;
+            dgvXemDiemLHP.DataSource = XemDiemDao.Instance.XemDiemLopHocPhan(mahp, tenhp);
         }
-        
-        #endregion
 
-        
+        #endregion
     }
 }

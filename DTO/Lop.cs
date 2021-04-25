@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace MTAStudentManagementSystem.DTO
 {
-    class Lop
+    internal class Lop
     {
         public Lop(DataRow row)
         {
@@ -17,6 +12,5 @@ namespace MTAStudentManagementSystem.DTO
 
         public string Mal { get; set; }
         public string Tenl { get; set; }
-
     }
 }

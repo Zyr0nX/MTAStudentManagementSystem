@@ -1,7 +1,7 @@
 ﻿
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
-    partial class UCSinhVien
+    partial class UcSinhVien
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,7 +33,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCSinhVien));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcSinhVien));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
@@ -258,7 +258,6 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.dgvChinhSua.EnableHeadersVisualStyles = false;
             this.dgvChinhSua.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dgvChinhSua.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dgvChinhSua.HeaderBgColor = System.Drawing.Color.Empty;
             this.dgvChinhSua.HeaderForeColor = System.Drawing.Color.White;
             this.dgvChinhSua.Location = new System.Drawing.Point(7, 137);
             this.dgvChinhSua.Name = "dgvChinhSua";
@@ -1360,7 +1359,6 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.dgvHocPhan.EnableHeadersVisualStyles = false;
             this.dgvHocPhan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dgvHocPhan.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dgvHocPhan.HeaderBgColor = System.Drawing.Color.Empty;
             this.dgvHocPhan.HeaderForeColor = System.Drawing.Color.White;
             this.dgvHocPhan.Location = new System.Drawing.Point(7, 137);
             this.dgvHocPhan.Name = "dgvHocPhan";
@@ -1421,7 +1419,6 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.dgvDangKy.EnableHeadersVisualStyles = false;
             this.dgvDangKy.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dgvDangKy.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dgvDangKy.HeaderBgColor = System.Drawing.Color.Empty;
             this.dgvDangKy.HeaderForeColor = System.Drawing.Color.White;
             this.dgvDangKy.Location = new System.Drawing.Point(7, 137);
             this.dgvDangKy.Name = "dgvDangKy";
@@ -2690,7 +2687,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.Controls.Add(this.bDangKy);
             this.Controls.Add(this.bChinhSua);
             this.Controls.Add(this.pSinhVien);
-            this.Name = "UCSinhVien";
+            this.Name = "UcSinhVien";
             this.Size = new System.Drawing.Size(1030, 580);
             this.pSinhVien.ResumeLayout(false);
             this.tpChinhSua.ResumeLayout(false);

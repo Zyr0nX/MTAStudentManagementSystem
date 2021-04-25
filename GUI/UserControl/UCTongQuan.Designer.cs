@@ -1,7 +1,7 @@
 ﻿
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
-    partial class UCTongQuan
+    partial class UcTongQuan
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCTongQuan));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcTongQuan));
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
@@ -194,7 +194,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.Controls.Add(this.bunifuPanel3);
             this.Controls.Add(this.bunifuPanel2);
             this.Controls.Add(this.bunifuPanel1);
-            this.Name = "UCTongQuan";
+            this.Name = "UcTongQuan";
             this.Size = new System.Drawing.Size(1030, 580);
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();

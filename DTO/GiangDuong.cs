@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace MTAStudentManagementSystem.DTO
 {
-    class GiangDuong
+    internal class GiangDuong
     {
         public GiangDuong(DataRow row)
         {
@@ -17,6 +12,5 @@ namespace MTAStudentManagementSystem.DTO
 
         public string Magd { get; set; }
         public string Motagd { get; set; }
-
     }
 }

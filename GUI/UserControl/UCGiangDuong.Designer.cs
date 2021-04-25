@@ -1,7 +1,7 @@
 ﻿
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
-    partial class UCGiangDuong
+    partial class UcGiangDuong
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCGiangDuong));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcGiangDuong));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
@@ -123,7 +123,6 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.dgvGiangDuong.EnableHeadersVisualStyles = false;
             this.dgvGiangDuong.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dgvGiangDuong.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dgvGiangDuong.HeaderBgColor = System.Drawing.Color.Empty;
             this.dgvGiangDuong.HeaderForeColor = System.Drawing.Color.White;
             this.dgvGiangDuong.Location = new System.Drawing.Point(3, 134);
             this.dgvGiangDuong.Name = "dgvGiangDuong";
@@ -1005,7 +1004,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.Controls.Add(this.dgvGiangDuong);
             this.Controls.Add(this.gbChinhSua);
             this.Controls.Add(this.gbTimKiem);
-            this.Name = "UCGiangDuong";
+            this.Name = "UcGiangDuong";
             this.Size = new System.Drawing.Size(1030, 580);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiangDuong)).EndInit();
             this.gbChinhSua.ResumeLayout(false);

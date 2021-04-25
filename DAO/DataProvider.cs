@@ -1,33 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MTAStudentManagementSystem.DAO
 {
-    class DataProvider
+    internal class DataProvider
     {
-        private static DataProvider instance;
+        private static DataProvider _instance;
+
+        private static readonly string ConnectionString =
+            "Data Source=(local);Initial Catalog=MTASTudentManagement;Integrated Security=True";
+
+        private DataProvider()
+        {
+        }
 
         internal static DataProvider Instance
         {
-            get => instance ?? (instance = new DataProvider());
-            set => instance = value;
+            get => _instance ?? (_instance = new DataProvider());
+            set => _instance = value;
         }
-
-        private DataProvider() { }
-
-        private static string connectionString = "Data Source=(local);Initial Catalog=MTASTudentManagement;Integrated Security=True";
 
         public static void TestConnection()
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (var connection = new SqlConnection(ConnectionString))
                 {
                     connection.Open();
                     connection.Close();
@@ -35,41 +35,54 @@ namespace MTAStudentManagementSystem.DAO
             }
             catch (SqlException)
             {
-                DialogResult result = MessageBox.Show("Không kết nối được với cơ sở dữ liệu", "Lỗi",
+                var result = MessageBox.Show(@"Không kết nối được với cơ sở dữ liệu", @"Lỗi",
                     MessageBoxButtons.RetryCancel,
                     MessageBoxIcon.Error);
-                if (result == DialogResult.Retry)
+                switch (result)
                 {
-                    TestConnection();
-                }
-                else if (result == DialogResult.Cancel)
-                {
-                    Environment.Exit(1);
+                    case DialogResult.Retry:
+                        TestConnection();
+                        break;
+                    case DialogResult.Cancel:
+                        Environment.Exit(1);
+                        break;
+                    case DialogResult.None:
+                        break;
+                    case DialogResult.OK:
+                        break;
+                    case DialogResult.Abort:
+                        break;
+                    case DialogResult.Ignore:
+                        break;
+                    case DialogResult.Yes:
+                        break;
+                    case DialogResult.No:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
         }
 
         public DataTable ExecuteQuery(string q, object[] parameter = null)
         {
-            DataTable data = new DataTable();
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            var data = new DataTable();
+            using (var connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(q, connection);
+                var command = new SqlCommand(q, connection);
                 if (parameter != null)
                 {
-                    string[] listPara = q.Split(' ');
-                    int i = 0;
-                    foreach (string item in listPara)
+                    var listPara = q.Split(' ');
+                    var i = 0;
+                    foreach (var item in listPara)
                     {
-                        if (item.Contains('@'))
-                        {
-                            command.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
-                        }
+                        if (!item.Contains('@')) continue;
+                        command.Parameters.AddWithValue(item, parameter[i] ?? DBNull.Value);
+                        i++;
                     }
                 }
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                var adapter = new SqlDataAdapter(command);
                 adapter.Fill(data);
                 connection.Close();
             }
@@ -78,22 +91,20 @@ namespace MTAStudentManagementSystem.DAO
 
         public int ExecuteNonQuery(string q, object[] parameter = null)
         {
-            int data = 0;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            int data;
+            using (var connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(q, connection);
+                var command = new SqlCommand(q, connection);
                 if (parameter != null)
                 {
-                    string[] listPara = q.Split(' ');
-                    int i = 0;
-                    foreach (string item in listPara)
+                    var listPara = q.Split(' ');
+                    var i = 0;
+                    foreach (var item in listPara)
                     {
-                        if (item.Contains('@'))
-                        {
-                            command.Parameters.AddWithValue(item, parameter[i] ?? DBNull.Value);
-                            i++;
-                        }
+                        if (!item.Contains('@')) continue;
+                        command.Parameters.AddWithValue(item, parameter[i] ?? DBNull.Value);
+                        i++;
                     }
                 }
                 data = command.ExecuteNonQuery();
@@ -104,22 +115,20 @@ namespace MTAStudentManagementSystem.DAO
 
         public object ExecuteScalar(string q, object[] parameter = null)
         {
-            object data = 0;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            object data;
+            using (var connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(q, connection);
+                var command = new SqlCommand(q, connection);
                 if (parameter != null)
                 {
-                    string[] listPara = q.Split(' ');
-                    int i = 0;
-                    foreach (string item in listPara)
+                    var listPara = q.Split(' ');
+                    var i = 0;
+                    foreach (var item in listPara)
                     {
-                        if (item.Contains('@'))
-                        {
-                            command.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
-                        }
+                        if (!item.Contains('@')) continue;
+                        command.Parameters.AddWithValue(item, parameter[i] ?? DBNull.Value);
+                        i++;
                     }
                 }
                 data = command.ExecuteScalar();

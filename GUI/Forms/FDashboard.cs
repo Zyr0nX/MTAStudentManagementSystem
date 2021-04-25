@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MTAStudentManagementSystem.GUI.UserControl;
 
@@ -32,44 +25,44 @@ namespace MTAStudentManagementSystem.GUI.Forms
         private void bTongQuan_Click(object sender, EventArgs e)
         {
             MoveSlider(bTongQuan);
-            UCTongQuan uc = new UCTongQuan();
+            var uc = new UcTongQuan();
             AddUserControlToPanel(uc);
         }
 
         private void bSinhVien_Click(object sender, EventArgs e)
         {
             MoveSlider(bSinhVien);
-            AddUserControlToPanel(new UCSinhVien());
+            AddUserControlToPanel(new UcSinhVien());
         }
 
         private void bLop_Click(object sender, EventArgs e)
         {
             MoveSlider(bLop);
-            AddUserControlToPanel(new UCLop());
+            AddUserControlToPanel(new UcLop());
         }
 
         private void bHocPhan_Click(object sender, EventArgs e)
         {
             MoveSlider(bHocPhan);
-            AddUserControlToPanel(new UCHocPhan());
+            AddUserControlToPanel(new UcHocPhan());
         }
 
         private void bPhong_Click(object sender, EventArgs e)
         {
             MoveSlider(bPhong);
-            AddUserControlToPanel(new UCGiangDuong());
+            AddUserControlToPanel(new UcGiangDuong());
         }
 
         private void bBangDiem_Click(object sender, EventArgs e)
         {
             MoveSlider(bNhapDiem);
-            AddUserControlToPanel(new UCNhapDiem());
+            AddUserControlToPanel(new UcNhapDiem());
         }
 
         private void bXemDiem_Click(object sender, EventArgs e)
         {
             MoveSlider(bXemDiem);
-            AddUserControlToPanel(new UCXemDiem());
+            AddUserControlToPanel(new UcXemDiem());
         }
 
         private void bDangXuat_Click(object sender, EventArgs e)

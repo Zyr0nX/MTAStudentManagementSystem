@@ -1,7 +1,7 @@
 ﻿
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
-    partial class UCXemDiem
+    partial class UcXemDiem
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCXemDiem));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcXemDiem));
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -277,7 +277,6 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.dgvXemDiemLHP.EnableHeadersVisualStyles = false;
             this.dgvXemDiemLHP.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dgvXemDiemLHP.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dgvXemDiemLHP.HeaderBgColor = System.Drawing.Color.Empty;
             this.dgvXemDiemLHP.HeaderForeColor = System.Drawing.Color.White;
             this.dgvXemDiemLHP.Location = new System.Drawing.Point(7, 137);
             this.dgvXemDiemLHP.Name = "dgvXemDiemLHP";
@@ -520,7 +519,6 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.dgvDiemSinhVien.EnableHeadersVisualStyles = false;
             this.dgvDiemSinhVien.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dgvDiemSinhVien.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dgvDiemSinhVien.HeaderBgColor = System.Drawing.Color.Empty;
             this.dgvDiemSinhVien.HeaderForeColor = System.Drawing.Color.White;
             this.dgvDiemSinhVien.Location = new System.Drawing.Point(7, 137);
             this.dgvDiemSinhVien.Name = "dgvDiemSinhVien";
@@ -786,7 +784,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.Controls.Add(this.bXemDiemHP);
             this.Controls.Add(this.bXemDiemSV);
             this.Controls.Add(this.pXemDiem);
-            this.Name = "UCXemDiem";
+            this.Name = "UcXemDiem";
             this.Size = new System.Drawing.Size(1030, 580);
             this.tpXemDiemHP.ResumeLayout(false);
             this.bunifuGroupBox4.ResumeLayout(false);

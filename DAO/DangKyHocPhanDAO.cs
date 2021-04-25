@@ -1,42 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace MTAStudentManagementSystem.DAO
 {
-    class DangKyHocPhanDAO
+    internal class DangKyHocPhanDao
     {
-        private static DangKyHocPhanDAO instance;
+        private static DangKyHocPhanDao _instance;
 
-        internal static DangKyHocPhanDAO Instance
+        private DangKyHocPhanDao()
         {
-            get => instance ?? (instance = new DangKyHocPhanDAO());
-            set => instance = value;
         }
 
-        private DangKyHocPhanDAO() { }
+        internal static DangKyHocPhanDao Instance
+        {
+            get => _instance ?? (_instance = new DangKyHocPhanDao());
+            set => _instance = value;
+        }
 
         public DataTable GetHocPhanDangKyList(string masv)
         {
-            string query = "SELECT * FROM DANGKYHOCPHAN WHERE MASV = @masv";
-            DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] {masv});
+            const string query = "SELECT * FROM DANGKYHOCPHAN WHERE MASV = @masv";
+            var table = DataProvider.Instance.ExecuteQuery(query, new object[] {masv});
             return table;
         }
 
         public int ThemHocPhanDangKy(string masv, string mahp)
         {
-            string query = "EXEC [dbo].[ThemHocPhanDangKy] @masv , @mahp";
-            int i = DataProvider.Instance.ExecuteNonQuery(query, new object[] {masv, mahp});
+            const string query = "EXEC [dbo].[ThemHocPhanDangKy] @masv , @mahp";
+            var i = DataProvider.Instance.ExecuteNonQuery(query, new object[] {masv, mahp});
             return i;
         }
 
         public int XoaHocPhanDangKy(string masv, string mahp)
         {
-            string query = "EXEC [dbo].[XoaHocPhanDangKy] @masv , @mahp";
-            int i = DataProvider.Instance.ExecuteNonQuery(query, new object[] {masv, mahp});
+            const string query = "EXEC [dbo].[XoaHocPhanDangKy] @masv , @mahp";
+            var i = DataProvider.Instance.ExecuteNonQuery(query, new object[] {masv, mahp});
             return i;
         }
     }

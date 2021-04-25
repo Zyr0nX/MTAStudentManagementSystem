@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MTAStudentManagementSystem.DAO;
-using MTAStudentManagementSystem.DTO;
 
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
-    public partial class UCHocPhan : System.Windows.Forms.UserControl
+    public partial class UcHocPhan : System.Windows.Forms.UserControl
     {
-        public UCHocPhan()
+        public UcHocPhan()
         {
             InitializeComponent();
             LoadChinhSua();
@@ -22,7 +14,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         #region Chỉnh sửa thông tin
 
-        private int i = -1;
+        private int _i = -1;
 
         private void bChinhSua_Click(object sender, EventArgs e)
         {
@@ -32,27 +24,21 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void LoadChinhSua()
         {
-            ClearBindingCS();
-            ClearBindingTK();
+            ClearBindingCs();
+            ClearBindingTk();
             LoadListHocPhan();
             ChinhSuaBinding();
             LoadComboBoxGiangDuong();
         }
 
-        private void ClearBindingCS()
+        private void ClearBindingCs()
         {
-            foreach (Control control in gbChinhSua.Controls)
-            {
-                control.DataBindings.Clear();
-            }
+            foreach (Control control in gbChinhSua.Controls) control.DataBindings.Clear();
         }
 
-        private void ClearBindingTK()
+        private void ClearBindingTk()
         {
-            foreach (Control control in gbTimKiem.Controls)
-            {
-                control.DataBindings.Clear();
-            }
+            foreach (Control control in gbTimKiem.Controls) control.DataBindings.Clear();
         }
 
         private void ChinhSuaBinding()
@@ -68,18 +54,18 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void LoadListHocPhan()
         {
-            dgvChinhSua.DataSource = HocPhanDAO.Instance.GetHocPhanList();
+            dgvChinhSua.DataSource = HocPhanDao.Instance.GetHocPhanList();
         }
 
         private void LoadComboBoxGiangDuong()
         {
-            List<GiangDuong> list = GiangDuongDAO.Instance.GetListGiangDuong();
+            var list = GiangDuongDao.Instance.GetListGiangDuong();
             cbGiangDuongCS.DataSource = list;
             cbGiangDuongCS.DisplayMember = "magd";
             cbGiangDuongCS.ValueMember = "magd";
         }
 
-        private void DisEnableButtonCS(bool x)
+        private void DisEnableButtonCs(bool x)
         {
             bThemCS.Enabled = x;
             bSuaCS.Enabled = x;
@@ -96,86 +82,77 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void bThemCS_Click(object sender, EventArgs e)
         {
-            DisEnableButtonCS(false);
-            ClearBindingCS();
-            tbMaHocPhanCS.Text = HocPhanDAO.Instance.TaoMaHocPhan();
+            DisEnableButtonCs(false);
+            ClearBindingCs();
+            tbMaHocPhanCS.Text = HocPhanDao.Instance.TaoMaHocPhan();
             tbTenHocPhanCS.Text = "";
             tbSoTinChiCS.Text = "";
             tbGiangVienCS.Text = "";
             cbThuCS.Text = "";
             tbTietCS.Text = "";
             cbGiangDuongCS.Text = "";
-            i = 1;
+            _i = 1;
         }
 
         private void bSuaCS_Click(object sender, EventArgs e)
         {
-            DisEnableButtonCS(false);
-            ClearBindingCS();
+            DisEnableButtonCs(false);
+            ClearBindingCs();
             ChinhSuaBinding();
-            i = 1;
+            _i = 1;
         }
 
         private void bXoaCS_Click(object sender, EventArgs e)
         {
-            DisEnableButtonCS(false);
-            ClearBindingCS();
+            DisEnableButtonCs(false);
+            ClearBindingCs();
             ChinhSuaBinding();
-            i = 2;
+            _i = 2;
         }
 
         private void bLuuCS_Click(object sender, EventArgs e)
         {
-            string mahp = tbMaHocPhanCS.Text;
-            string tenhp = tbTenHocPhanCS.Text;
-            int sotc = Convert.ToInt32(tbSoTinChiCS.Text);
-            string giangvien = tbGiangVienCS.Text;
-            string thu = cbThuCS.SelectedItem.ToString();
-            string tiet = tbTietCS.Text;
-            string magd = cbGiangDuongCS.SelectedValue.ToString();
-            int result = -1;
-            if (i == 1)
-            {
-                result = HocPhanDAO.Instance.ThemSuaHocPhan(mahp, tenhp, sotc, giangvien, thu, tiet, magd);
-            }
-            else if (i == 2)
-            {
-                result = HocPhanDAO.Instance.XoaHocPhan(mahp);
-            }
+            var mahp = tbMaHocPhanCS.Text;
+            var tenhp = tbTenHocPhanCS.Text;
+            var sotc = Convert.ToInt32(tbSoTinChiCS.Text);
+            var giangvien = tbGiangVienCS.Text;
+            var thu = cbThuCS.SelectedItem.ToString();
+            var tiet = tbTietCS.Text;
+            var magd = cbGiangDuongCS.SelectedValue.ToString();
+            var result = -1;
+            if (_i == 1)
+                result = HocPhanDao.Instance.ThemSuaHocPhan(mahp, tenhp, sotc, giangvien, thu, tiet, magd);
+            else if (_i == 2) result = HocPhanDao.Instance.XoaHocPhan(mahp);
 
             if (result == 0)
-            {
-                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                MessageBox.Show(@"Thất bại", @"Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
-            {
-                MessageBox.Show("Thành công", "Thông báo", MessageBoxButtons.OK);
-            }
+                MessageBox.Show(@"Thành công", @"Thông báo", MessageBoxButtons.OK);
 
-            i = -1;
-            ClearBindingCS();
-            DisEnableButtonCS(true);
+            _i = -1;
+            ClearBindingCs();
+            DisEnableButtonCs(true);
             LoadListHocPhan();
         }
 
         private void bHuyCS_Click(object sender, EventArgs e)
         {
-            ClearBindingCS();
-            DisEnableButtonCS(true);
+            ClearBindingCs();
+            DisEnableButtonCs(true);
         }
 
         private void tbMaHocPhanTK_TextChange(object sender, EventArgs e)
         {
-            string mahp = tbMaHocPhanTK.Text;
-            string tenhp = tbTenHocPhanTK.Text;
-            dgvChinhSua.DataSource = HocPhanDAO.Instance.TimKiemHocPhan(mahp, tenhp);
+            var mahp = tbMaHocPhanTK.Text;
+            var tenhp = tbTenHocPhanTK.Text;
+            dgvChinhSua.DataSource = HocPhanDao.Instance.TimKiemHocPhan(mahp, tenhp);
         }
 
         private void tbTenHocPhanTK_TextChange(object sender, EventArgs e)
         {
-            string mahp = tbMaHocPhanTK.Text;
-            string tenhp = tbTenHocPhanTK.Text;
-            dgvChinhSua.DataSource = HocPhanDAO.Instance.TimKiemHocPhan(mahp, tenhp);
+            var mahp = tbMaHocPhanTK.Text;
+            var tenhp = tbTenHocPhanTK.Text;
+            dgvChinhSua.DataSource = HocPhanDao.Instance.TimKiemHocPhan(mahp, tenhp);
         }
 
         #endregion
@@ -196,7 +173,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void LoadComboBoxHocPhan()
         {
-            List<HocPhan> list = HocPhanDAO.Instance.GetListHocPhan();
+            var list = HocPhanDao.Instance.GetListHocPhan();
             cbMaHocPhanDS.DataSource = list;
             cbMaHocPhanDS.DisplayMember = "mahp";
             cbMaHocPhanDS.ValueMember = "mahp";
@@ -204,21 +181,21 @@ namespace MTAStudentManagementSystem.GUI.UserControl
 
         private void LoadListLopHocPhan()
         {
-            dgvDanhSach.DataSource = HocPhanDAO.Instance.GetDanhSachLopHocPhan("", "");
+            dgvDanhSach.DataSource = HocPhanDao.Instance.GetDanhSachLopHocPhan("", "");
         }
 
         private void cbMaHocPhanDS_SelectedValueChanged(object sender, EventArgs e)
         {
-            string mahp = cbMaHocPhanDS.SelectedValue.ToString();
-            string tenhp = tbTenHocPhanDS.Text;
-            dgvDanhSach.DataSource = HocPhanDAO.Instance.GetDanhSachLopHocPhan(mahp, tenhp);
+            var mahp = cbMaHocPhanDS.SelectedValue.ToString();
+            var tenhp = tbTenHocPhanDS.Text;
+            dgvDanhSach.DataSource = HocPhanDao.Instance.GetDanhSachLopHocPhan(mahp, tenhp);
         }
 
         private void tbTenHocPhanDS_TextChange(object sender, EventArgs e)
         {
-            string mahp = cbMaHocPhanDS.SelectedValue.ToString();
-            string tenhp = tbTenHocPhanDS.Text;
-            dgvDanhSach.DataSource = HocPhanDAO.Instance.GetDanhSachLopHocPhan(mahp, tenhp);
+            var mahp = cbMaHocPhanDS.SelectedValue.ToString();
+            var tenhp = tbTenHocPhanDS.Text;
+            dgvDanhSach.DataSource = HocPhanDao.Instance.GetDanhSachLopHocPhan(mahp, tenhp);
         }
 
         #endregion

@@ -1,7 +1,7 @@
 ﻿
 namespace MTAStudentManagementSystem.GUI.UserControl
 {
-    partial class UCNhapDiem
+    partial class UcNhapDiem
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCNhapDiem));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcNhapDiem));
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -131,7 +131,6 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.dgvPhieuDiem.EnableHeadersVisualStyles = false;
             this.dgvPhieuDiem.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dgvPhieuDiem.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dgvPhieuDiem.HeaderBgColor = System.Drawing.Color.Empty;
             this.dgvPhieuDiem.HeaderForeColor = System.Drawing.Color.White;
             this.dgvPhieuDiem.Location = new System.Drawing.Point(3, 134);
             this.dgvPhieuDiem.Name = "dgvPhieuDiem";
@@ -1020,7 +1019,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             this.Controls.Add(this.dgvPhieuDiem);
             this.Controls.Add(this.gbChinhSua);
             this.Controls.Add(this.bunifuGroupBox1);
-            this.Name = "UCNhapDiem";
+            this.Name = "UcNhapDiem";
             this.Size = new System.Drawing.Size(1030, 580);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuDiem)).EndInit();
             this.gbChinhSua.ResumeLayout(false);
