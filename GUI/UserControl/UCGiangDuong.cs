@@ -80,7 +80,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             DisEnableButtonCS(false);
             ClearBindingCS();
             tbMaGiangDuongCS.DataBindings.Add(new Binding("text", dgvGiangDuong.DataSource, "MAGD"));
-            tbMaGiangDuongCS.DataBindings.Add(new Binding("text", dgvGiangDuong.DataSource, "MOTAGD"));
+            tbMoTaGiangDuongCS.DataBindings.Add(new Binding("text", dgvGiangDuong.DataSource, "MOTAGD"));
             i = 1;
         }
 
@@ -89,7 +89,7 @@ namespace MTAStudentManagementSystem.GUI.UserControl
             DisEnableButtonCS(false);
             ClearBindingCS();
             tbMaGiangDuongCS.DataBindings.Add(new Binding("text", dgvGiangDuong.DataSource, "MAGD"));
-            tbMoTaGiangDuongCS.DataBindings.Add(new Binding("text", dgvGiangDuong.DataSource, "TENGD"));
+            tbMoTaGiangDuongCS.DataBindings.Add(new Binding("text", dgvGiangDuong.DataSource, "MOTAGD"));
             i = 2;
         }
 
