@@ -61,6 +61,7 @@ namespace MTAStudentManagementSystem.GUI.Forms
             this.dcDashboard = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pUserControl = new Bunifu.UI.WinForms.BunifuPanel();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.pLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pTop1.SuspendLayout();
@@ -884,6 +885,7 @@ namespace MTAStudentManagementSystem.GUI.Forms
             this.pTop1.BorderColor = System.Drawing.Color.Transparent;
             this.pTop1.BorderRadius = 0;
             this.pTop1.BorderThickness = 0;
+            this.pTop1.Controls.Add(this.btnThoat);
             this.pTop1.Controls.Add(this.lTop);
             this.pTop1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pTop1.Location = new System.Drawing.Point(250, 0);
@@ -996,6 +998,22 @@ namespace MTAStudentManagementSystem.GUI.Forms
             this.pUserControl.Size = new System.Drawing.Size(1030, 580);
             this.pUserControl.TabIndex = 5;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.ForeColor = System.Drawing.Color.White;
+            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
+            this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThoat.Location = new System.Drawing.Point(989, 6);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(41, 44);
+            this.btnThoat.TabIndex = 6;
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // FDashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1042,5 +1060,6 @@ namespace MTAStudentManagementSystem.GUI.Forms
         private System.Windows.Forms.Timer timer1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bLop;
         private Bunifu.UI.WinForms.BunifuPanel pUserControl;
+        private System.Windows.Forms.Button btnThoat;
     }
 }
